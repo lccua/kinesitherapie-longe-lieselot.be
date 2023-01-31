@@ -34,14 +34,14 @@ body {
     font-weight: 700;
 }
 .navbar-brand {
-    margin-right: 5rem;
-    margin-left: 5rem;
+    margin-right: 2.5rem;
+    margin-left: 1.2rem;
 }
 .nav-link {
     margin-right: 1em !important;
 }
 .nav-link:hover {
-    color: #0168B3;
+    color: #1ABC9C;
 }
 .navbar-collapse {
     justify-content: flex-end;
