@@ -273,12 +273,11 @@ color:#0064A7
 }
 
 .card {
-    border: 10px solid rgb(255, 255, 255);
+    
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
-    height: px;
-    align-items: c;
+    height: 100%;
    
 }
 .card:hover {
@@ -342,9 +341,9 @@ color:#0064A7
     top: 18px;
     z-index: 1;
     right: 30px;
-    border: medium solid rgba(37, 117, 252, 1);
+    border: medium solid #0064A7;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent rgba(37, 117, 252, 1);
+    border-color: transparent transparent transparent #0064A7;
   }
   
   /* Add arrows to the right container (pointing left) */
@@ -354,9 +353,9 @@ color:#0064A7
     top: 18px;
     z-index: 1;
     left: 30px;
-    border: medium solid rgba(245, 87, 108, 1);
+    border: medium solid #0064A7;
     border-width: 10px 10px 10px 0;
-    border-color: transparent rgba(245, 87, 108, 1) transparent transparent;
+    border-color: transparent #0064A7 transparent transparent;
   }
   
   /* Fix the circle for containers on the right side */
@@ -381,9 +380,9 @@ color:#0064A7
     /* Make sure that all arrows are pointing leftwards */
     .timeline-4::before {
       left: 60px;
-      border: medium solid white;
+      border: medium solid rgb(14, 14, 14);
       border-width: 10px 10px 10px 0;
-      border-color: transparent white transparent transparent;
+      border-color: transparent rgb(0, 0, 0) transparent transparent;
     }
   
     /* Make sure all circles are at the same spot */
@@ -404,38 +403,14 @@ color:#0064A7
   
   .gradient-custom {
     /* fallback for old browsers */
-    background: #6a11cb;
+    background: #ffffff;
   
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(
-      to right,
-      rgba(106, 17, 203, 1),
-      rgba(37, 117, 252, 1)
-    );
-  
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(
-      to right,
-      rgba(106, 17, 203, 1),
-      rgba(37, 117, 252, 1)
-    );
   }
+
+.card-body{
+  color: #0064A7;
   
-  .gradient-custom-4 {
-    /* fallback for old browsers */
-    background: #f093fb;
+}
+
+
   
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(
-      to left,
-      rgba(240, 147, 251, 1),
-      rgba(245, 87, 108, 1)
-    );
-  
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(
-      to left,
-      rgba(240, 147, 251, 1),
-      rgba(245, 87, 108, 1)
-    );
-  }
