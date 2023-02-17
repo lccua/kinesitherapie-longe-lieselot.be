@@ -166,50 +166,46 @@ color:#0064A7
     margin-top:30px;
  }
 
- table {
-    border-collapse: collapse;
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fvl-d > td {
+  font-size: 14px;
+  font-weight: bold;
+ 
+  text-transform: uppercase;
+  padding: 0.8em;
+  padding-right: 1em;
+  padding-left: 0.8em;
+}
+
+.fvl-d > td > span {
+  font-size: 15px;
+  font-weight: bold;
+  
+  text-transform: uppercase;
 }
 
 
 
     /* Design der Tabelle */
-    .opening-hours {
-        overflow: hidden;
-        padding: 1em;
-       
-    }
-    .contact-info {
-        overflow: hidden;
-        padding: 1em;
-    }
-    .fvl-d > td {
-        font-size: 18px;
-        font-weight: bold;
-       
-        text-transform: uppercase;
-        padding: 0.8em;
-        padding-right: 2em;
-        padding-left: 0.2em;
-    }
+    
 
-    .fvl-d > td > span {
-        font-size: 18px;
-        font-weight: bold;
-        padding-right: 0.8em;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-    }
-    li{
-        margin: px 0px;
-        font-size: 18px;
-      }
+    
 
     @media screen and (max-width: 382px) {
-        .contact-section{
-            padding-left: 20px;
-            padding-bottom: 20px;
-
-        }
+      .section{
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        align-items: center;
+        padding: 25px 0px;
+        width: 100%;
+        justify-content: center;
+        
+      }
         .fvl-d > td {
             font-size: 15px;
             font-weight: bold;
@@ -391,7 +387,7 @@ color:#0064A7
   width: 100%;
   min-height: 100vh;
   align-items: center;
-  padding: 78px 0px;
+  padding: 45px 0px;
   width: 100%;
   justify-content: center;
   
