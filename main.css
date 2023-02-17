@@ -400,3 +400,28 @@ color:#0064A7
   height: 3px;
   background-color: #000000;
 }
+.toTop{
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  background-color: #1ABC9C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .5s;
+  color: #ffffff;
+}
+.active_toTop{
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 15px;
+}
+html{
+  scroll-behavior: smooth;
+}
