@@ -30,7 +30,13 @@ body {
     transform: scale(1.2);
 }
 .about-us-section .text-head{
-    font-size: 40px;
+   
+    font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+
+
 
 }
 .about-us-section .break-small{
@@ -94,11 +100,17 @@ color:#0064A7
 }
 .description h1 {
 	color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 .description p {
 	color: #fff;
 	font-size: 1.3rem;
 	line-height: 1.5;
+  
 }
 
 
@@ -487,3 +499,62 @@ body{margin-top:20px;}
     border-radius: 6.25rem;
     opacity: .5
 }
+
+.head-title{
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+ 
+}
+
+.head-title::after{
+  content: "";
+  position: sticky;
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #000000;
+  margin: 10px auto;
+}
+
+
+.contact-title{
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
+.contact-title::after{
+  content: "";
+  position: sticky;
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #000000;
+  margin: 10px auto;
+}
+
+.section-special{
+  display: flex;
+  width: 100%;
+  min-height: 0vh;
+  align-items: center;
+  padding: 45px 0px;
+  justify-content: center;
+}
+.section-gallerij{
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  padding: 80px 0px;
+  width: 100%;
+  justify-content: center;
+}
+
+
