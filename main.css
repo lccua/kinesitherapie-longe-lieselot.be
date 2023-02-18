@@ -67,6 +67,7 @@ color:#0064A7
    
     margin-left: 65px;
     align-items: center;
+    width: 200px;
 }
 .nav-link {
     margin-right: 1em !important;
@@ -159,6 +160,73 @@ color:#0064A7
     .features {
         margin: 0;
     }
+    .navbar-brand {
+   
+      margin-left: 0px;
+      align-items: center;
+  }
+  .section-special .head-title{
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+   
+  }
+  .section .head-title{
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+  }
+  .section-gallerij .head-title{
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+  }
+  .footer .contact-title
+  {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+  }
+  .section .text-head{
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .toTop{
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background-color: #1ABC9C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s;
+    color: #ffffff;
+  }
+  .active_toTop{
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 15px;
+  }
  
 }
   
@@ -558,13 +626,5 @@ body{margin-top:20px;}
 }
 .section-gallerij{
   display: flex;
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  padding-top	: 45px;
-  padding-bottom: 70px;
-  width: 100%;
-  justify-content: center;
+  margin-bottom: 75px;  
 }
-
-
