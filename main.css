@@ -628,3 +628,22 @@ body{margin-top:20px;}
   display: flex;
   margin-bottom: 75px;  
 }
+.lol-title{
+  font-size: 1.8rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
+
+.apparte-title{
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
