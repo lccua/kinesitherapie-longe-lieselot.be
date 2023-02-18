@@ -49,8 +49,9 @@ h5{
 color:#0064A7
 }
 .navbar {
+    align-items: center;
     background:#ffffff;
-    padding-top: 1.5rem;
+    padding-top: 1.rem;
     padding-bottom: 1.5rem;
     transition: padding-top 0.3s, padding-bottom 0.3s;
 }
@@ -58,12 +59,14 @@ color:#0064A7
 {
     text-transform: uppercase;  
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #0064A7;
 }
 .navbar-brand {
-    width: 200px;
+   
+    margin-left: 65px;
+    align-items: center;
 }
 .nav-link {
     margin-right: 1em !important;
@@ -558,8 +561,8 @@ body{margin-top:20px;}
   width: 100%;
   min-height: 100vh;
   align-items: center;
-  padding-bottom: 80px;
-  padding-top: 25px;
+  padding-top	: 45px;
+  padding-bottom: 70px;
   width: 100%;
   justify-content: center;
 }
