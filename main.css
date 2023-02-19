@@ -136,6 +136,7 @@ color:#0064A7
     padding: 40px 0;
 }
 @media (max-width: 575.98px) {
+  
     .description {
         left: 0;
         padding: 0 15px;
@@ -144,6 +145,7 @@ color:#0064A7
         transform: none;
         text-align: center;
     }
+    
     .btn {
         width: 70%;
         margin-bottom: 10px;
@@ -228,6 +230,7 @@ color:#0064A7
     bottom: 15px;
   }
  
+ 
 }
   
 
@@ -261,7 +264,7 @@ color:#0064A7
 }
 
 .fvl-d > td {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
  
   text-transform: uppercase;
@@ -271,7 +274,7 @@ color:#0064A7
 }
 
 .fvl-d > td > span {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   
   text-transform: uppercase;
@@ -320,6 +323,7 @@ color:#0064A7
             margin: 0px 0px;
             font-size: 18px;
           } 
+          
 
 }
 .footer-copyright {
@@ -467,8 +471,10 @@ color:#0064A7
   }
 
 .card-body{
-  color: #0064A7;
+  color: #000000;
   
+}
+.card-header{
 }
 
 .section{
@@ -628,22 +634,80 @@ body{margin-top:20px;}
   display: flex;
   margin-bottom: 75px;  
 }
-.lol-title{
-  font-size: 1.8rem;
+
+.specialisaties-title{
+  font-size: 1.7rem;
   font-weight: normal;
   text-transform: uppercase;
-  text-align: center;
+  
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 10px;
 }
 
+
+
 .apparte-title{
   font-size: 1.5rem;
   font-weight: normal;
   text-transform: uppercase;
-  text-align: center;
+  
   margin-top: 1rem;
   margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
+.dropdown-menu{
+  cursor: pointer;
+  
+}
+
+.dropdown-item{
+  font-weight: bold;
+  color: #0064A7;
+  font-size: 17px;
+}
+
+.dropdown-item {
+  margin-right: 1em !important;
+}
+.dropdown-item:hover {
+  color: #1ABC9C;
+}
+
+.contact-p
+{
+  font-size: 18px;
+}
+
+.section-tarieven{
+  display: flex;
+  width: 100%;
+  min-height: 0vh;
+  align-items: center;
+  padding-top: 55px;
+  padding-bottom: 85px;
+  
+  justify-content: center;
+}
+.section-tarieven .card-title{
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 10px;
+  
+ 
+ 
+}
+.section-tarieven .card-bedrag{
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 2px;
+ 
+}
+
+.card-text{
   padding-bottom: 10px;
 }
