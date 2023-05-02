@@ -4,7 +4,7 @@ const setup = () => {
   //hideBannerIfNeeded();
 };
 
-const hideBannerIfNeeded = () => {
+//const hideBannerIfNeeded = () => {
   const vakantieBanner = document.getElementById("vakantieBanner");
   const currentDate = new Date();
   const endDate = new Date("2023-04-24");
