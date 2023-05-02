@@ -1,7 +1,7 @@
 const setup = () => {
   headerFunction();
   window.addEventListener('scroll', handleScroll);
-  hideBannerIfNeeded();
+  //hideBannerIfNeeded();
 };
 
 const hideBannerIfNeeded = () => {
