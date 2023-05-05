@@ -5,13 +5,13 @@ const setup = () => {
 };
 
 //const hideBannerIfNeeded = () => {
-  const vakantieBanner = document.getElementById("vakantieBanner");
-  const currentDate = new Date();
-  const endDate = new Date("2023-04-24");
-  if (currentDate > endDate) {
-    vakantieBanner.style.display = "none";
-  }
-}
+  //const vakantieBanner = document.getElementById("vakantieBanner");
+  //const currentDate = new Date();
+  //const endDate = new Date("2023-04-24");
+  //if (currentDate > endDate) {
+  //  vakantieBanner.style.display = "none";
+//  }
+//}
 
 const headerFunction = () => {
   $(document).ready(function(){
