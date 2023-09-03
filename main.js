@@ -4,14 +4,14 @@ const setup = () => {
   //hideBannerIfNeeded();
 };
 
-//const hideBannerIfNeeded = () => {
-  //const vakantieBanner = document.getElementById("vakantieBanner");
-  //const currentDate = new Date();
-  //const endDate = new Date("2023-04-24");
-  //if (currentDate > endDate) {
-  //  vakantieBanner.style.display = "none";
-//  }
-//}
+const hideBannerIfNeeded = () => {
+  const vakantieBanner = document.getElementById("vakantieBanner");
+  const currentDate = new Date();
+  const endDate = new Date("2023-09-17");
+  if (currentDate > endDate) {
+    vakantieBanner.style.display = "none";
+  }
+}
 
 const headerFunction = () => {
   $(document).ready(function(){
