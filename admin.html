@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #loginMessage {
+            margin-top: 16px;
+            font-weight: 500;
+            color: #dc3545; /* Use a color that contrasts well with the background */
+        }
+
+        #message {
+            margin-top: 16px;
+            font-weight: 500;
+            color: #35dc80; /* Use a color that contrasts well with the background */
+        }
+    </style>
+</head>
+<body>
+
+    <form id="authForm">
+        <label for="username">Username:</label>
+        <input type="text" id="userEmail" name="username" placeholder="Enter your username" oninput="clearLoginMessage()">
+
+        <label for="password">Password:</label>
+        <input type="password" id="userPassword" name="password" placeholder="Enter your password" oninput="clearLoginMessage()">
+
+        <button id="signInButton" type="button">Login</button>
+        <div id="loginMessage"></div>
+    </form>
+
+    <form id="adminPage">
+        <label for="startDateInput">Start Datum:</label>
+        <input type="date" id="startDateInput" name="startDateInput">
+
+        <label for="endDateInput">Eind Datum:</label>
+        <input type="date" id="endDateInput" name="endDateInput">
+
+        <button id="myButton" type="button" >Stel Datums in</button>
+        <div id="message"></div>
+    </form>
+
+    <!-- SCRIPTS -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+        } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBW5eJwExSqAEwGHKxdoXXKGGbpfoX4c4M",
+            authDomain: "kinesitherapie-longe.firebaseapp.com",
+            projectId: "kinesitherapie-longe",
+            storageBucket: "kinesitherapie-longe.appspot.com",
+            messagingSenderId: "1012234088918",
+            appId: "1:1012234088918:web:85e5cd842613880d57f477"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const userEmail = document.querySelector("#userEmail");
+        const userPassword = document.querySelector("#userPassword");
+        const authForm = document.querySelector("#authForm");
+        const signInButton = document.querySelector("#signInButton");
+        const adminPage = document.querySelector("#adminPage");
+        const loginMessage = document.querySelector("#loginMessage");
+
+        adminPage.style.display = 'none';
+
+        const userSignIn = async() => {
+            const signInEmail = userEmail.value;
+            const signInPassword = userPassword.value;
+
+            try {
+                await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
+            } catch (error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                // Display error message in the #message div
+                loginMessage.innerHTML = `Verkeerd wachtwoord of email`;
+            }
+        }
+
+        const clearLoginMessage = () => {
+            loginMessage.innerHTML = '';
+        }
+
+        const checkAuthState = async() => {
+            onAuthStateChanged(auth, user => {
+                if (user) {
+                    authForm.style.display = 'none';
+                    adminPage.style.display = 'block';
+                } else {
+                    authForm.style.display = 'block';
+                    adminPage.style.display = 'none';
+                }
+            });
+        }
+
+        checkAuthState();
+
+        signInButton.addEventListener('click', userSignIn);
+    </script>
+
+    <script src="main.js"></script> <!-- JS FILE -->
+
+</body>
+</html>

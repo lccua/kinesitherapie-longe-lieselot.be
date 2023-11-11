@@ -1,16 +1,56 @@
 const setup = () => {
-  headerFunction();
   window.addEventListener('scroll', handleScroll);
+  
+
   updateEndDateAndCreateBanner(); // Call the combined function to update the end date and create the banner.
+
+
+  // Get the button element by its id
+  var button = document.getElementById("myButton");
+
+  // Add an event listener to the button
+  button.addEventListener("click", function() {
+    // Your code to be executed when the button is clicked
+    updateEndDateAndCreateBanner(); // Call the function when the button is clicked
+    AddSuccesMessage();
+  
+  });
 };
 
+const AddSuccesMessage = () => {
+    // Dynamically add text to the "message" div
+    const messageDiv = document.getElementById("message");
+    if (messageDiv) {
+      messageDiv.innerText = "De datums zijn toegevoegd";
+    }
+}
+
+
 const updateEndDateAndCreateBanner = () => {
+
   const currentDate = new Date();
 
-  // You can provide a way for users to input the start date, e.g., through a form
-  // Here, we assume a variable 'startDate' holds the user-inputted start date
-  const startDate = new Date("2023-09-02"); // Change this to the user-inputted start date
-  const endDate = new Date("2023-09-17"); // Change this to the new end date
+  // Retrieve the start and end dates from local storage or use default values
+  const savedStartDate = localStorage.getItem('startDate');
+  const savedEndDate = localStorage.getItem('endDate');
+
+  const startDateInput = document.getElementById("startDateInput");
+  const endDateInput = document.getElementById("endDateInput");
+
+  // Check if the elements exist before accessing their values
+  const startDateString = startDateInput ? startDateInput.value || savedStartDate : savedStartDate;
+  const endDateString = endDateInput ? endDateInput.value || savedEndDate : savedEndDate;
+
+  // Convert the date strings to Date objects
+  const startDate = new Date(startDateString);
+  const endDate = new Date(endDateString);
+
+  // Save the selected start and end dates in local storage
+  localStorage.setItem('startDate', startDate);
+  localStorage.setItem('endDate', endDate);
+
+ 
+  
 
   // Function to compare only the date parts of two dates
   const areDatesEqual = (date1, date2) => {
@@ -22,23 +62,32 @@ const updateEndDateAndCreateBanner = () => {
   };
   
   if (currentDate < endDate || areDatesEqual(currentDate, endDate)) {
-    // The current date is before the start date or the same as the end date, so create the vakantieBanner section
-    const vakantieBanner = document.createElement("section");
-    vakantieBanner.id = "vakantieBanner";
 
-    // Create the inner HTML for the vakantieBanner
-    vakantieBanner.innerHTML = `
-      <div class="row text-light pt-2" style="background-color: #1ABC9C;">
-        <div class="col-md-12 pl-2">
-          <p class="outOffOffice">Momenteel ben ik op verlof <span id="startDate" style="color: #0064A7"> van ${formatDate(startDate)} tot en met ${formatDate(endDate)}</span>. Gedurende deze periode zal ik niet beschikbaar zijn.</p>
-        </div>
-      </div>
-    `;
+    const isIndexPage = window.location.pathname === '/index.html';
 
-    // Insert the vakantieBanner at the very top of the page
-    const body = document.body;
-    const firstChild = body.firstChild;
-    body.insertBefore(vakantieBanner, firstChild);
+    if (isIndexPage) {
+        // The current date is before the start date or the same as the end date, so create the vakantieBanner section
+        const vakantieBanner = document.createElement("section");
+        vakantieBanner.id = "vakantieBanner";
+
+        // Create the inner HTML for the vakantieBanner
+        vakantieBanner.innerHTML = `
+          <div class="row text-light pt-2" style="background-color: #1ABC9C;">
+            <div class="col-md-12 pl-2">
+              <p class="outOffOffice">Momenteel ben ik op verlof <span id="startDate" style="color: #0064A7"> van ${formatDate(startDate)} tot en met ${formatDate(endDate)}</span>. Gedurende deze periode zal ik niet beschikbaar zijn.</p>
+            </div>
+          </div>
+        `;
+
+        // Insert the vakantieBanner at the very top of the page
+        const body = document.body;
+        const firstChild = body.firstChild;
+        body.insertBefore(vakantieBanner, firstChild);
+
+
+       
+    }
+   
   } 
   
   else {
@@ -52,11 +101,7 @@ const updateEndDateAndCreateBanner = () => {
 
 
 
-const headerFunction = () => {
-  $(document).ready(function(){
-    $('.header').height($(window).height());
-  });
-}
+
 
 const handleScroll = () => {
   let toTop = document.querySelector(".toTop");
