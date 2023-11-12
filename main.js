@@ -1,21 +1,14 @@
 const setup = () => {
   window.addEventListener('scroll', handleScroll);
   
-
   updateEndDateAndCreateBanner(); // Call the combined function to update the end date and create the banner.
-
 
   // Get the button element by its id
   var button = document.getElementById("myButton");
 
   // Add an event listener to the button
-  button.addEventListener("click", function() {
-    // Your code to be executed when the button is clicked
-    updateEndDateAndCreateBanner(); // Call the function when the button is clicked
-    AddSuccesMessage();
-  
-  });
-};
+  button.addEventListener("click",updateEndDateAndCreateBanner);
+}
 
 const AddSuccesMessage = () => {
     // Dynamically add text to the "message" div
@@ -24,7 +17,6 @@ const AddSuccesMessage = () => {
       messageDiv.innerText = "De datums zijn toegevoegd";
     }
 }
-
 
 const updateEndDateAndCreateBanner = () => {
 
@@ -49,8 +41,6 @@ const updateEndDateAndCreateBanner = () => {
   localStorage.setItem('startDate', startDate);
   localStorage.setItem('endDate', endDate);
 
- 
-  
 
   // Function to compare only the date parts of two dates
   const areDatesEqual = (date1, date2) => {
@@ -83,11 +73,7 @@ const updateEndDateAndCreateBanner = () => {
         const body = document.body;
         const firstChild = body.firstChild;
         body.insertBefore(vakantieBanner, firstChild);
-
-
-       
     }
-   
   } 
   
   else {
@@ -97,11 +83,9 @@ const updateEndDateAndCreateBanner = () => {
       vakantieBanner.remove();
     }
   }
+
+  AddSuccesMessage();
 }
-
-
-
-
 
 const handleScroll = () => {
   let toTop = document.querySelector(".toTop");
@@ -117,6 +101,6 @@ const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are 0-indexed
   return `${day}/${month}`;
-}
+};
 
-window.addEventListener('load', setup);
+window.addEventListener('load', setup)

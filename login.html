@@ -70,22 +70,21 @@
 </head>
 <body>
 
-    <form id="adminPage">
-        <label for="startDateInput">Start Datum:</label>
-        <input type="date" id="startDateInput" name="startDateInput">
+    <form id="authForm">
+        <label for="username">Username:</label>
+        <input type="text" id="userEmail" name="username" placeholder="Enter your username" oninput="clearLoginMessage()">
 
-        <label for="endDateInput">Eind Datum:</label>
-        <input type="date" id="endDateInput" name="endDateInput">
+        <label for="password">Password:</label>
+        <input type="password" id="userPassword" name="password" placeholder="Enter your password" oninput="clearLoginMessage()">
 
-        <button id="myButton" type="button" >Stel Datums in</button>
-        <div id="message"></div>
+        <button id="signInButton" type="button">Login</button>
+        <div id="loginMessage"></div>
     </form>
 
+ 
     <!-- SCRIPTS -->
-    <script src="main.js"></script> <!-- JS FILE -->
-
-    <script  type="module">
-         // Import the functions you need from the SDKs you need
+    <script type="module">
+        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
         import {
             getAuth,
@@ -93,7 +92,7 @@
             onAuthStateChanged,
         } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-            // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBW5eJwExSqAEwGHKxdoXXKGGbpfoX4c4M",
             authDomain: "kinesitherapie-longe.firebaseapp.com",
@@ -103,23 +102,44 @@
             appId: "1:1012234088918:web:85e5cd842613880d57f477"
         };
 
-
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        const checkAuthState = () => {
-            onAuthStateChanged(auth, user => {
-                if (sessionStorage.getItem('isLoggedIn') !== 'true') {
-                   window.location.href = 'login.html'
-                } 
-            });
+        const userEmail = document.querySelector("#userEmail");
+        const userPassword = document.querySelector("#userPassword");
+        const authForm = document.querySelector("#authForm");
+        const signInButton = document.querySelector("#signInButton");
+        const adminPage = document.querySelector("#adminPage");
+        const loginMessage = document.querySelector("#loginMessage");
+
+        const userSignIn = async () => {
+            const signInEmail = userEmail.value;
+            const signInPassword = userPassword.value;
+
+            try {
+                await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
+                
+                  // Save the login state in localStorage
+                  sessionStorage.setItem('isLoggedIn', 'true');
+                
+                // Redirect to the admin page upon successful login
+                window.location.href = "admin.html"; // Change 'admin.html' to the actual URL of your admin page
+
+            } catch (error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                console.log(errorMessage);
+
+                // Display error message in the #message div
+                loginMessage.innerHTML = `Verkeerde wachtwoord of email`;
+            }
         }
 
-        checkAuthState();
-    </script>
-   
+        signInButton.addEventListener('click', userSignIn);
 
-    
+    </script>
 
 </body>
 </html>
