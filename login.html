@@ -71,11 +71,11 @@
 <body>
 
     <form id="authForm">
-        <label for="username">Username:</label>
-        <input type="text" id="userEmail" name="username" placeholder="Enter your username" oninput="clearLoginMessage()">
+        <label for="username">Email:</label>
+        <input type="text" id="userEmail" name="email" placeholder="Geef uw email">
 
-        <label for="password">Password:</label>
-        <input type="password" id="userPassword" name="password" placeholder="Enter your password" oninput="clearLoginMessage()">
+        <label for="password">Wachtwoord:</label>
+        <input type="password" id="userPassword" name="wachtwoord" placeholder="Geef uw wachtwoord">
 
         <button id="signInButton" type="button">Login</button>
         <div id="loginMessage"></div>
@@ -136,6 +136,16 @@
                 loginMessage.innerHTML = `Verkeerde wachtwoord of email`;
             }
         }
+
+        const clearLoginMessage = () =>{
+            loginMessage.innerHTML = "";
+
+        }
+        // Clear login message when something happens in the text boxes
+        userEmail.addEventListener('input', clearLoginMessage);
+        userPassword.addEventListener('input', clearLoginMessage);
+
+
 
         signInButton.addEventListener('click', userSignIn);
 
