@@ -2,21 +2,9 @@ const setup = () => {
   window.addEventListener('scroll', handleScroll);
   
   updateEndDateAndCreateBanner(); // Call the combined function to update the end date and create the banner.
-
-  // Get the button element by its id
-  var button = document.getElementById("myButton");
-
-  // Add an event listener to the button
-  button.addEventListener("click",updateEndDateAndCreateBanner);
 }
 
-const AddSuccesMessage = () => {
-    // Dynamically add text to the "message" div
-    const messageDiv = document.getElementById("message");
-    if (messageDiv) {
-      messageDiv.innerText = "De datums zijn toegevoegd";
-    }
-}
+
 
 const updateEndDateAndCreateBanner = () => {
 
@@ -30,16 +18,12 @@ const updateEndDateAndCreateBanner = () => {
   const endDateInput = document.getElementById("endDateInput");
 
   // Check if the elements exist before accessing their values
-  const startDateString = startDateInput ? startDateInput.value || savedStartDate : savedStartDate;
-  const endDateString = endDateInput ? endDateInput.value || savedEndDate : savedEndDate;
+  const startDateString = savedStartDate;
+  const endDateString = savedEndDate;
 
   // Convert the date strings to Date objects
   const startDate = new Date(startDateString);
   const endDate = new Date(endDateString);
-
-  // Save the selected start and end dates in local storage
-  localStorage.setItem('startDate', startDate);
-  localStorage.setItem('endDate', endDate);
 
 
   // Function to compare only the date parts of two dates
@@ -53,9 +37,7 @@ const updateEndDateAndCreateBanner = () => {
   
   if (currentDate < endDate || areDatesEqual(currentDate, endDate)) {
 
-    const isIndexPage = window.location.pathname === '/index.html';
-
-    if (isIndexPage) {
+    
         // The current date is before the start date or the same as the end date, so create the vakantieBanner section
         const vakantieBanner = document.createElement("section");
         vakantieBanner.id = "vakantieBanner";
@@ -73,7 +55,6 @@ const updateEndDateAndCreateBanner = () => {
         const body = document.body;
         const firstChild = body.firstChild;
         body.insertBefore(vakantieBanner, firstChild);
-    }
   } 
   
   else {
@@ -84,7 +65,6 @@ const updateEndDateAndCreateBanner = () => {
     }
   }
 
-  AddSuccesMessage();
 }
 
 const handleScroll = () => {

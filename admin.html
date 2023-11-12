@@ -82,7 +82,7 @@
     </form>
 
     <!-- SCRIPTS -->
-    <script src="main.js"></script> <!-- JS FILE -->
+    
 
     <script  type="module">
          // Import the functions you need from the SDKs you need
@@ -115,7 +115,44 @@
             });
         }
 
+       
+
         checkAuthState();
+
+
+        const AddSuccesMessage = () => {
+            // Dynamically add text to the "message" div
+            const messageDiv = document.getElementById("message");
+            if (messageDiv) {
+            messageDiv.innerText = "De datums zijn toegevoegd";
+            }
+        }
+
+        const SetOutOffOfficeDates = () =>{
+          
+            const startDateInput = document.getElementById("startDateInput");
+            const endDateInput = document.getElementById("endDateInput");
+
+            // Check if the elements exist before accessing their values
+            const startDateString = startDateInput ? startDateInput.value || savedStartDate : savedStartDate;
+            const endDateString = endDateInput ? endDateInput.value || savedEndDate : savedEndDate;
+
+            // Convert the date strings to Date objects
+            const startDate = new Date(startDateString);
+            const endDate = new Date(endDateString);
+
+            // Save the selected start and end dates in local storage
+            localStorage.setItem('startDate', startDate);
+            localStorage.setItem('endDate', endDate);
+            
+            AddSuccesMessage();
+        }
+
+        
+
+        // Add event listener to the button
+        document.getElementById("myButton").addEventListener("click", SetOutOffOfficeDates);
+
     </script>
    
 
